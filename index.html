@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="App">
+<head>
+  <meta charset="utf-8">
+  <title>Dice roller for Pathfinder Adventure Card Game</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+  <script src="js/index.js"></script>
+</head>
+<body ng-controller="Controller">
+
+<input type="number" min=0 ng-model="d4"><div class="dice">D4</div>
+<input type="number" min=0 ng-model="d6"><div class="dice">D6</div>
+<input type="number" min=0 ng-model="d8"><div class="dice">D8</div>
+<input type="number" min=0 ng-model="d10"><div class="dice">D10</div>
+<input type="number" min=0 ng-model="d12"><div class="dice">D12</div>
+
+<div class="dice_pool" ng-bind="d_all()"></div>
+
+<button ng-click="d_roll()">Roll!</button>
+
+<table>
+  <tr>
+    <td>Dice list</td>
+    <td>Rolled</td>
+    <td>Total</td>
+  </tr>
+  <tr ng-repeat="result in d_results">
+    <td>{{result.dice}}</td>
+    <td>{{result.all}}</td>
+    <td>{{result.total}}</td>
+  </tr>
+</table>
+
+</body>
+</html>
